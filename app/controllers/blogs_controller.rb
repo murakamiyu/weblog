@@ -12,7 +12,7 @@ class BlogsController < ApplicationController
 	end
 
 	def destroy
-		tweet = Blog.find(params[:id])
+		blog = Blog.find(params[:id])
 		if blog.user_id ==current_user.id
 		 blog.destroy 
 		end
