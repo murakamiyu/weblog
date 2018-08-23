@@ -1,10 +1,9 @@
-  <div class="contents row">
-    <%= form_tag("/tweets/#{@tweet.id}", method: :patch ) do %>
-      <h3>
+  <div class="contentsrow">
+    <%= form_tag("/blogs/#{@blogs.id}", method: :patch ) do %>
+      <h5>
         編集する
-      </h3>
-      <input placeholder="Image Url" type="text" name="image" value="<%= @tweet.image %>" autofocus="true">
-      <textarea cols="30" name="text" placeholder="text" rows="10"><%= @tweet.text %></textarea>
+      </h5>
+      <textarea cols="30" name="text" placeholder="text" rows="10"><%= @blogs.text %></textarea>
       <input type="submit" value="SENT">
     <% end %>
   </div>
