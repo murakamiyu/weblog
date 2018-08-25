@@ -1,28 +1,47 @@
-== README
+# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+|e-mail|string|null: false|
+|password|string|null: false|
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- has_many : members
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## membersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :group
+- belongs_to :user
+
+
+## groupsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|group_name|string|null: false|
+
+### Association
+- has_many : members
+- has_many : messages
+
+
+## messagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|text|text||
+|image|string||
+|group_id|integer|null: false|
+
+### Association
+- belongs_to :group
